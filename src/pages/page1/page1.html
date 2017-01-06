@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle end>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Weight Calculator</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<!--   <h3>Ionic Menu Starter</h3>
+
+  <p>
+    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
+  </p>
+
+  <button ion-button secondary menuToggle>Toggle Menu</button>
+ -->
+  <ion-item>
+    <ion-label>Material</ion-label>
+    <!-- <ion-select [(ngModel)]="product">
+      <ion-option value="f" selected="true">Female</ion-option>
+      <ion-option value="m">Male</ion-option>
+    </ion-select> -->
+
+    <ion-select [(ngModel)]="product" (ionChange)="productChanged()">
+      <ion-option *ngFor="let item of product_list" value="{{item.value}}" >{{item.text}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- <pre>{{selectedValue}}</pre>
+  <select [(ngModel)]="selectedValue">
+    <option *ngFor="let item of product_list" [ngValue]="item">{{item.text}}</option>
+  </select> -->
+
+  <ion-item>
+    <ion-label>Shape</ion-label>
+    <ion-select [(ngModel)]="shape" (ionChange)="shapeChanged()">
+      <ion-option *ngFor="let item of shape_list" value="{{item.value}}" >{{item.text}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <div >
+    <ion-item *ngIf="lbl1">
+      <ion-label color="primary">{{lbl1}}</ion-label>
+      <ion-input type="number" [(ngModel)]="param1" placeholder="Text Input"></ion-input>
+      <ion-select [(ngModel)]="unit1">
+        <ion-option *ngFor="let item of unit_list" value="{{item.value}}" >{{item.text}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+  <ion-item *ngIf="lbl2">
+    <ion-label color="primary">{{lbl2}}</ion-label>
+    <ion-input type="number" [(ngModel)]="param2" placeholder="Text Input"></ion-input>
+    <ion-select [(ngModel)]="unit2">
+      <ion-option *ngFor="let item of unit_list" value="{{item.value}}" >{{item.text}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item *ngIf="lbl3">
+    <ion-label color="primary">{{lbl3}}</ion-label>
+    <ion-input type="number" [(ngModel)]="param3" placeholder="Text Input"></ion-input>
+    <ion-select [(ngModel)]="unit3">
+      <ion-option *ngFor="let item of unit_list" value="{{item.value}}" >{{item.text}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary">Quantity</ion-label>
+    <ion-input type="number" [(ngModel)]="param4" placeholder="Quantity"></ion-input>
+  </ion-item>
+
+  <div class="flex" style="padding-top: 10px;"> 
+    <button class="margin-auto" ion-button round (click)="calculateWeight()">Calculate</button>
+  </div>
+
+  <ion-card *ngIf="result2">
+    <!-- <ion-card-header>
+    Card Header
+    </ion-card-header>
+    -->
+    <ion-card-content>
+      <h3 >Approximate weight &#8773; </h3>
+      <h3 style="text-align: right;">{{result2}} KG</h3>
+    </ion-card-content>
+  </ion-card>
+  
+  <history-viewer [maxRecord]="maxRecord"></history-viewer>
+</ion-content>

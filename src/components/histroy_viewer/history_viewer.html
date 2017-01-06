@@ -1,0 +1,13 @@
+<ion-card *ngFor="let item of historyData">
+  <ion-card-header>
+  	{{item.product_name}}
+  </ion-card-header>
+  <ion-card-content>
+  	<span *ngIf="item.lbl1">{{item.lbl1}}: {{item.param1}} {{item.unit1}}</span> <span *ngIf="item.lbl2">|</span> 
+    <span *ngIf="item.lbl2">{{item.lbl2}}: {{item.param2}} {{item.unit2}}</span> <span *ngIf="item.lbl3">|</span>
+    <span *ngIf="item.lbl3">{{item.lbl3}}: {{item.param3}} {{item.unit3}}</span>
+    <p>Qty: {{item.param4}} <span style="font-weight: bold;">Wt. &#8773; {{item.result2}} Kg.</span></p>
+
+    <p style="font-size: 10px; text-align: right;">{{item.date | date}}</p>
+  </ion-card-content>
+</ion-card>
