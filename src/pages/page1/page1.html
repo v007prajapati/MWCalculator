@@ -39,6 +39,21 @@
       <ion-option *ngFor="let item of shape_list" value="{{item.value}}" >{{item.text}}</ion-option>
     </ion-select>
   </ion-item>
+  
+  <ion-card *ngIf="shape">
+    <img class="margin-auto shape-thumb" [src]="'assets/images/'+shape+'.jpg'"/>
+    <!--
+    <ion-card-content>
+      <ion-card-title>
+        Nine Inch Nails Live
+        </ion-card-title>
+      <p>
+        The most popular industrial group ever, and largely
+        responsible for bringing the music to a mass audience.
+      </p>
+    </ion-card-content>
+    -->
+  </ion-card>
 
   <div >
     <ion-item *ngIf="lbl1">
